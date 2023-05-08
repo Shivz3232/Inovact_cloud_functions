@@ -26,8 +26,10 @@ exports.addUserToDB = functions
         JSON.stringify(response.errors)
       );
     } else {
-      variables["firstName"] = user["displayName"];
-      variables["lastName"] = user["displayName"];
+      const names = user["displayName"].split(" ");
+
+      variables["firstName"] = names[0];
+      variables["lastName"] = names[names.length - 1];
       variables["avatar"] = user["photoURL"];
       variables["phoneNumber"] = user["phoneNumber"];
 
