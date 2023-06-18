@@ -29,7 +29,7 @@ exports.addUserToDB = functions
       const names = user["displayName"].split(" ");
 
       variables["firstName"] = names[0];
-      variables["lastName"] = names[names.length - 1];
+      variables["lastName"] = names.splice(1).join(" ");
       variables["avatar"] = user["photoURL"];
       variables["phoneNumber"] = user["phoneNumber"];
 
